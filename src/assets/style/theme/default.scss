@@ -1,0 +1,116 @@
+@import '~@/assets/style/public.scss';
+
+.main-layout{
+  background: $color-background;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  // 侧边栏
+  .main-layout-sider{
+    &.ivu-layout-sider {
+      position: fixed;
+      left: 0px;
+      overflow: auto;
+      height: 100vh;
+      background: $color-background;
+      .ivu-layout-sider-children {
+        .logo{
+          @extend %unable-select;
+          height: $heightHeader;
+          line-height: $heightHeader;
+          text-align: center;
+          color: $color-content;
+          font-size: 16px;
+        }
+        .ivu-menu {
+          color: $color-content;
+          &.ivu-menu-dark {
+            background: $color-background;
+            &.ivu-menu-vertical {
+              // 打开的项目
+              .ivu-menu-opened {
+                background: $color-background;
+                .ivu-menu-submenu-title {
+                  background: $color-background;
+                }
+              }
+              // 单个的元素
+              .ivu-menu-item {
+                color: $color-content;
+                transition: padding-left 0s, margin-left 0s;
+                &:hover {
+                  background: $color-background;
+                }
+              }
+              // 单个的项目 激活
+              .ivu-menu-item-active {
+                &:not(.ivu-menu-submenu) {
+                  background: $color-background;
+                  border-left: 2px solid $color-primary;
+                  border-right: 0px solid $color-primary;
+                  padding-left: 14px;
+                  margin-left: 8px;
+                  color: $color-primary;
+                }
+              }
+              // 折叠的元素
+              .ivu-menu-submenu {
+                .ivu-menu-submenu-title {
+                  color: $color-content;
+                  &:hover {
+                    background: $color-background;
+                  }
+                }
+                .ivu-menu-item-active {
+                  background: $color-background !important;
+                  padding-left: 33px;
+                  margin-left: 8px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // header
+  .main-layout-header{
+    position: fixed;
+    left: $widthSider;
+    right: 0px;
+    padding: 0px $margin;
+    z-index: 8;
+    &.ivu-layout-header {
+      background-color: $color-background;
+      .ivu-menu {
+        &.ivu-menu-light {
+          background-color: $color-background;
+          &:after {
+            display: none;
+          }
+          &.ivu-menu-horizontal {
+            height: $heightHeader;
+            line-height: $heightHeader;
+          }
+        }
+      }
+    }
+  }
+  .main-layout-breadcrumb{
+    position: fixed;
+    top: $heightHeader;
+    left: $widthSider;
+    right: 0px;
+    background-color: $color-background;
+    padding: $margin $margin;
+    z-index: 8;
+  }
+  // 主布局
+  .main-layout-content{
+    margin-left: $widthSider;
+    margin-top: $heightHeader + $heightBreadcrumb;
+    background: $color-background;
+    height: calc(100vh - #{$heightHeader + $heightBreadcrumb});
+    position: relative;
+  }
+}

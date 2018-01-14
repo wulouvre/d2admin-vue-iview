@@ -1,0 +1,19 @@
+// iview 样式补丁
+
+// 增大 tooltip 的最大宽度
+.ivu-tooltip-inner {
+  max-width: 500px;
+}
+
+// 关闭所有卡片的阴影
+.ivu-card {
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+// 优化显示
+pre {
+  margin: 0px;
+  border-radius: 4px;
+}
